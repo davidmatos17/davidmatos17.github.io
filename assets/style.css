@@ -12,6 +12,7 @@
   --accent: #1F4287;
   --accent-ink: #17335E;
   --accent-soft: #E7ECF4;
+  --header-bg: rgba(250, 250, 249, 0.92);
 
   --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
@@ -19,6 +20,20 @@
 
   --maxw: 960px;
   --pad: 32px;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #151719;
+  --bg-alt: #1D2023;
+  --ink: #ECEAE5;
+  --ink-soft: #A9AEB2;
+  --ink-faint: #80868B;
+  --line: #2E3236;
+  --accent: #8FB0F0;
+  --accent-ink: #B9CDF5;
+  --accent-soft: #1E2A40;
+  --header-bg: rgba(21, 23, 25, 0.92);
 }
 
 
@@ -152,7 +167,7 @@ p { margin: 0 0 1em 0; color: var(--ink-soft); }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(250, 250, 249, 0.92);
+  background: var(--header-bg);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--line);
 }
@@ -163,8 +178,10 @@ p { margin: 0 0 1em 0; color: var(--ink-soft); }
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
 }
 .nav-brand {
+  margin-right: auto;
   font-family: var(--font-mono);
   font-size: 14px;
   letter-spacing: 0.04em;
@@ -208,6 +225,20 @@ p { margin: 0 0 1em 0; color: var(--ink-soft); }
   background: var(--ink);
   margin: 4px 0;
 }
+
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1;
+  align-self: stretch;
+  min-width: 36px;
+  padding: 0 9px;
+  cursor: pointer;
+}
+.theme-toggle:hover { border-color: var(--ink); }
 
 @media (max-width: 720px) {
   .nav-toggle { display: block; }
