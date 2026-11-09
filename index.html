@@ -1,107 +1,280 @@
-<!DOCTYPE html>
-<html lang="en">
-  
+<!doctype html>
+<html lang="en" data-type="service" data-radius="soft" data-buttons="tonal" data-motion>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>David's Portfolio</title>
-  <meta name="description" content="David Matos is a Software Engineer from Portugal, specializing in backend development and data engineering.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css">
-  <script>(function () { var t; try { t = localStorage.getItem('theme'); } catch (e) {} document.documentElement.dataset.theme = t || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); })();</script>
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-  </head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>David Matos: backend and data engineer in Portugal</title>
+<meta name="description" content="Software engineer from the University of Porto who builds Python libraries, FastAPI backends and CI/CD pipelines, with two internships at Celfinet.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="David Matos: backend and data engineer in Portugal">
+<meta property="og:description" content="Python libraries, FastAPI backends and CI/CD pipelines, from two internships at Celfinet.">
+<meta property="og:image" content="https://davidmatos17.github.io/share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<meta name="theme-color" content="#f7f7f5">
+<link rel="canonical" href="https://davidmatos17.github.io/">
+<meta name="site-kind" content="other">
+<meta name="page-type" content="service">
+<!-- the visitor's saved theme (shared with the other pages), set before the first paint -->
+<script>(function () { var t; try { t = localStorage.getItem('theme'); } catch (e) {} document.documentElement.dataset.theme = t || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); })();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400..700&family=Libre+Franklin:wght@400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/system.css">
+<link rel="stylesheet" href="assets/ui/cards.css">
+<link rel="stylesheet" href="assets/motion/motion.css">
+<link rel="stylesheet" href="assets/layout/layout.css">
+<link rel="stylesheet" href="assets/icons/icon.css">
+<style>
+:root {
+  --p-bg: #f7f7f5; --p-surface: #ebebe8; --p-ink: #000000; --p-muted: #666662;
+  --p-accent: #0c34e6; --p-accent-ink: #ffffff; --p-action: #0c34e6; --p-action-ink: #ffffff;
+  --p-inv-bg: #000000; --p-inv-surface: #010101; --p-inv-ink: #f7f7f5; --p-inv-muted: #828280;
+  --p-inv-accent: #0c34e6; --p-inv-accent-ink: #ffffff; --p-inv-action: #0c34e6; --p-inv-action-ink: #ffffff;
+  --font-display: "Source Serif 4", Georgia, serif;
+  --font-text: "Libre Franklin", system-ui, sans-serif;
+  --display-weight: 400;
+  --display-tracking: -0.02em;
+  --display-tracking-xl: -0.026em;
+}
+</style>
+<link rel="stylesheet" href="assets/diagrams/diagram.css">
+<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+<link rel="modulepreload" href="assets/moments/moments.js">
+<link rel="modulepreload" href="assets/moments/lib.js">
+<link rel="modulepreload" href="assets/moments/word-highlight/moment.js">
+<style>
+  /* dark mode (the site's theme toggle): the dealt palette's inverse, with a surface one step off the ground */
+  :root[data-theme="dark"] {
+    --p-bg: #0b0b0b; --p-surface: #161615; --p-ink: #f7f7f5; --p-muted: #a3a39f;
+    --p-inv-bg: #f7f7f5; --p-inv-surface: #ebebe8; --p-inv-ink: #000000; --p-inv-muted: #666662;
+    color-scheme: dark;
+  }
+  /* kind other: panels are flat, one step off the ground they stand on */
+  .panel { --ground-bg: var(--surface); }
+  #projects .panel { --p-h: 260px; }
+  #projects .ic-stack { display: flex; flex-wrap: wrap; gap: var(--s-5); align-items: center; justify-content: center; height: 100%; padding: var(--s-6); }
+  #projects .ic-tile { --tile: 96px; background: var(--bg); }
+  #experience .rows > li:last-child { border-bottom: 0; }
+  #letter .frame { aspect-ratio: 1; }
+  #letter .frame__img { object-position: 50% 0; }
+  :root[data-theme="dark"] .ic-ink { filter: invert(1); }
+  .tools { width: 100%; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--s-7) var(--s-5); }
+  .tools li { display: grid; justify-items: start; gap: var(--s-3); }
+  .tools .ic { height: 48px; width: auto; max-width: 64px; }
+  @media (min-width: 640px) and (max-width: 1023px) {
+    #experience .panel { --p-h: 200px; }
+    #experience .card { margin-top: var(--s-7); }
+    #projects .card { grid-column: 1 / -1; }
+    #projects .panel { --p-h: 200px; }
+    #letter .frame { aspect-ratio: 16 / 9; }
+  }
+  @media (max-width: 639px) {
+    .tools { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-6) var(--s-3); }
+    .tools li { font-size: var(--t-small); }
+    .tools .ic { height: 36px; }
+    #experience .panel { --p-h: 320px; }
+    #experience .rows__extra { display: none; }
+    #experience .card { grid-row: 2; grid-column: 1 / -1; }
+    #projects .panel { --p-h: 96px; }
+    #projects .ic-tile--72 { --tile: 56px; }
+    #letter .frame { aspect-ratio: 16 / 9; }
+  }
+  .theme-toggle { width: 44px; height: 44px; display: inline-grid; place-items: center; border: 0; background: none; color: var(--ink); cursor: pointer; border-radius: var(--r-sm); font-size: 18px; }
+</style>
+</head>
 <body>
-  <header class="site-header">
-    <nav class="nav">
-      <a href="index.html" class="nav-brand">DAVID MATOS</a>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="sobre.html">About me</a></li>
-      <li><a href="experiencia.html">Experience</a></li>
-      <li><a href="projetos.html">Projects</a></li>
-      <li><a href="competencias.html">Skills</a></li>
-      <li><a href="recommendations.html" >Recommendations</a></li>
-      <li><a href="cv.html">CV</a></li>
-      <li><a href="contacto.html">Contact</a></li>
-      </ul>
+<!-- type: service (a software engineer being hired; site-kind other)
+     deal: hero split, nav split (no panel: no photographs for its cards), close type (re-dealt from close-photo: the
+     one photograph is the hero's), footer columns (re-dealt from footer-visit: no door to visit), rhythm surface-pairs,
+     buttons tonal, mark wordmark, palette card-pastels, type source-serif, radius soft, grounds none
+     moments: word-highlight in #background (the one moment of a short page; the photo moments need more photographs) -->
+
+<header class="nav nav--split">
+  <div class="wrap nav__bar">
+    <a class="skip-link" href="#top">Skip to content</a>
+    <a class="nav__logo" href="#top">David Matos</a>
+    <nav class="nav__links" aria-label="Main">
+      <div class="nav__item"><a class="nav__link" href="#experience">Experience</a></div>
+      <div class="nav__item"><a class="nav__link" href="#letter">Recommendation</a></div>
+      <div class="nav__item"><a class="nav__link" href="#projects">Projects</a></div>
+      <div class="nav__item"><a class="nav__link" href="#skills">Skills</a></div>
     </nav>
-  </header>
+    <div class="nav__actions">
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode" data-theme-toggle>☾︎</button>
+      <a class="btn btn--primary" href="mailto:davidmatos0417@gmail.com">Email David</a>
+    </div>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
 
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-content">
-        <p class="hero-eyebrow">Professional portfolio</p>
-        <h1>David Matos</h1>
-        <p class="hero-role">Software Engineer</p>
-        <p class="hero-lede">Computer Science graduate from the Faculty of Sciences, University of Porto, with experience in backend development, data engineering, and cloud infrastructure. Before that, I was a professional handball player for 10 years — a journey that shaped the discipline, communication and teamwork.</p>
-        <div class="hero-actions">
-          <a href="experiencia.html" class="btn btn-primary">View experience</a>
-          <a href="contacto.html" class="btn btn-secondary">Contact me</a>
-        </div>
-        <div class="hero-links">
-          <a href="https://github.com/davidmatos17">GitHub ↗</a>
-          <a href="https://www.linkedin.com/in/david-matos-8145b0259/">LinkedIn ↗</a>
-          <a href="cv.html">View CV</a>
+<main id="top">
+  <section class="hero hero--split" data-enter aria-labelledby="hero-h">
+    <div class="wrap"><div class="hero-text grid hero__grid">
+      <div class="hero__text span-5">
+        <h1 id="hero-h">David Matos, backend and data engineer</h1>
+        <p class="hero__lead">I build Python libraries, FastAPI backends and the CI/CD pipelines that ship them. BSc in Computer Science, University of Porto, 2022 to 2026.</p>
+        <div class="btn-row"><a class="btn btn--primary" href="mailto:davidmatos0417@gmail.com">Email David<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a><a class="btn btn--secondary" href="files/david-matos-cv.pdf" download>Download my CV</a></div>
+      </div>
+      <div class="hero__media span-6 start-7">
+        <img src="images/david.png" width="1087" height="1447" alt="David Matos in a blue striped shirt, standing against a grey wall" style="--ly-pos: 50% 40%" fetchpriority="high" data-source="client" data-subject="portrait of David Matos">
+        <div class="ly-float">
+          <div class="ly-float__row"><span>Celfinet, Lisbon</span><span>2025 to 2026</span></div>
+          <div class="ly-float__title">Python library still used by two internal teams</div>
         </div>
       </div>
+    </div></div>
+  </section>
 
-      <div class="hero-photo">
-        <img src="images/David.jpeg" alt="David Matos — Software Engineer">
+  <section class="section statement" id="background" data-moment="word-highlight" aria-label="Background">
+    <div class="wrap">
+      <p class="t-label">Before Computer Science</p>
+      <p class="mo-wh__text">For 10 years I played handball professionally. Training and competing with a team every week is where my discipline, my teamwork and my time management <strong>under pressure</strong> come from.</p>
+    </div>
+  </section>
+
+  <section class="section g2m" id="experience" aria-labelledby="experience-h">
+    <div class="wrap grid grid--top">
+        <div class="group span-5 stack-6">
+          <h2 id="experience-h">Two internships at Celfinet. <span class="muted">Software engineering in Lisbon.</span></h2>
+          <ul class="rows">
+            <li><span class="rows__name">Curricular intern</span><span class="rows__value">Oct 2025 to Jan 2026</span><p>A Python library of hundreds of functions over the company's databases, on SQLAlchemy, shipped through Azure DevOps.</p></li>
+            <li><span class="rows__name">Summer intern</span><span class="rows__value">Summer 2025</span><p>Restructured a FastAPI backend for base-station energy studies and wrote a CSV checker for bad data.</p></li>
+            <li class="rows__extra"><span class="rows__name">Vice President, NUCC</span><span class="rows__value">2023 to 2024</span><p>Ran technical and career events for the Computer Science students' association at the University of Porto.</p></li>
+          </ul>
+        </div>
+        <article class="card card--open span-6 start-7 m-nolift">
+          <h3>The Celfinet data library</h3>
+          <div class="panel">
+            <div class="dg" data-diagram data-dg-still><script type="application/json">{"layout":"hub","size":"card","alt":"The Python library sits between the company databases, SQLAlchemy, its unit tests, the Azure DevOps pipeline and the developers who install it.","ground":"none","motion":{"pulse":"none"},"center":{"label":"Python library","icon":"python"},"spokes":[{"label":"Databases","icon":"ui:database"},{"label":"SQLAlchemy","icon":"si:sqlalchemy"},{"label":"Unit tests","icon":"ui:list-checks"},{"label":"Azure DevOps","icon":"ui:git-branch"},{"label":"Developers","icon":"ui:users"}]}</script></div>
+          </div>
+        </article>
+    </div>
+  </section>
+
+  <section class="section" id="letter" aria-labelledby="letter-h">
+    <div class="wrap">
+      <div class="grid grid--top">
+        <div class="span-5 stack-6">
+          <h2 id="letter-h">Recommendation from Celfinet</h2>
+          <figure class="quote">
+            <blockquote>David distinguished himself through his combination of autonomy, ability to learn quickly, and capacity to deliver high-quality results from an early stage.</blockquote>
+            <figcaption class="person"><span><span class="person__name">Marco Sousa</span><span class="person__role">Research Lead, Celfinet, a Cyient company</span></span></figcaption>
+          </figure>
+          <p><a class="link" href="files/david-matos-recommendation-letter.pdf">Read the full letter</a></p>
+        </div>
+        <a class="frame frame--photo span-6 start-7 m-zoom" href="files/david-matos-recommendation-letter.pdf">
+          <img class="frame__img" src="images/recommendation-letter.png" alt="The first page of the recommendation letter from Celfinet, dated Lisbon, 19 August 2026" loading="lazy" width="1256" height="1256" data-source="client" data-subject="recommendation letter, first page">
+        </a>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="marker"><span>Summary</span></div>
-      <div class="summary-grid">
-        <div class="summary-card">
-          <h3>Experience</h3>
-          <p>Software engineering internships at Celfinet (Cyient), focusing on backend development, data processing, and internal libraries.</p>
-          <a class="card-link" href="experiencia.html">View full experience →</a>
-        </div>
-        <div class="summary-card">
-          <h3>Projects</h3>
-          <p>Cloud platform for data science and machine learning model optimization with Python.</p>
-          <a class="card-link" href="projetos.html">View projects →</a>
-        </div>
-        <div class="summary-card">
-          <h3>Skills</h3>
-          <p>Python, Java, C/C++, SQL, FastAPI, Docker, Kubernetes, CI/CD, and machine learning fundamentals.</p>
-          <a class="card-link" href="competencias.html">View skills →</a>
-        </div>
-        <div class="summary-card">
-          <h3>Education</h3>
-          <p>Bachelor's Degree in Computer Science — Faculty of Sciences, University of Porto (2022–2026).</p>
-          <a class="card-link" href="sobre.html">Learn more →</a>
-        </div>
-        <div class="summary-card">
-          <h3>Recommendations</h3>
-          <p>Letters of recommendation from supervisors and colleagues highlighting my skills and contributions.</p>
-          <a class="card-link" href="recommendations.html">View recommendations →</a>
-        </div>
+  <section class="section ground-surface" id="projects" aria-labelledby="projects-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="projects-h">Two projects from 2026</h2>
+        <p>A cloud platform and a machine learning study, both written in Python.</p>
+      </div>
+      <div class="grid">
+        <article class="card card--row card--open span-6 m-nolift">
+          <h3>Runs data science jobs on Kubernetes</h3>
+          <p>A personal cloud platform of containerised services, packaged with Docker and orchestrated by Kubernetes on Linux.</p>
+          <div class="panel" data-visual role="img" aria-label="Python, Docker, Kubernetes and Linux"><div class="ic-stack">
+            <span class="ic-tile ic-tile--72"><img class="ic" src="assets/icons/python.svg" alt="" width="48" height="48" loading="lazy"></span>
+            <span class="ic-tile ic-tile--72"><img class="ic ic-land" src="assets/icons/docker.svg" alt="" width="66" height="48" loading="lazy"></span>
+            <span class="ic-tile ic-tile--72"><img class="ic" src="assets/icons/kubernetes.svg" alt="" width="49" height="48" loading="lazy"></span>
+            <span class="ic-tile ic-tile--72"><img class="ic ic-tall" src="assets/icons/linux-tux.svg" alt="" width="41" height="48" loading="lazy"></span>
+          </div></div>
+        </article>
+        <article class="card card--row card--open span-6 m-nolift">
+          <h3>Tunes k-nearest neighbours in Python</h3>
+          <p>K-fold cross-validation across datasets, testing normalisation, PCA and Manhattan distance for accuracy and run time.</p>
+          <div class="panel" data-visual role="img" aria-label="Python and scikit-learn"><div class="ic-stack">
+            <span class="ic-tile ic-tile--72"><img class="ic" src="assets/icons/python.svg" alt="" width="48" height="48" loading="lazy"></span>
+            <span class="ic-tile ic-tile--72"><img class="ic ic-land" src="assets/icons/scikitlearn.svg" alt="" width="82" height="48" loading="lazy"></span>
+          </div></div>
+        </article>
       </div>
     </div>
   </section>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <p>&copy; 2026 David Matos</p>
-      <ul class="footer-links">
-        <li><a href="https://github.com/davidmatos17">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/david-matos-8145b0259/">LinkedIn</a></li>
-        <li><a href="contacto.html">Contact</a></li>
-      </ul>
+  <section class="section ground-surface" id="skills" aria-labelledby="skills-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="skills-h">20 languages and tools</h2>
+        <p>From the backend code to the cluster it runs on.</p>
+      </div>
+      <div class="tools-frame" data-visual role="img" aria-label="Python, Java, C, C++, JavaScript, SQL, FastAPI, Flask, Django, SQLAlchemy, Postman, Docker, Kubernetes, Azure, Google Cloud, Git, Linux, Bash, scikit-learn and REST APIs"><ul class="tools">
+        <li><img class="ic ic-40" src="assets/icons/python.svg" alt="" width="48" height="48" loading="lazy"><span>Python</span></li>
+        <li><img class="ic ic-40 ic-tall" src="assets/icons/java.svg" alt="" width="36" height="48" loading="lazy"><span>Java</span></li>
+        <li><img class="ic ic-40" src="assets/icons/c.svg" alt="" width="43" height="48" loading="lazy"><span>C</span></li>
+        <li><img class="ic ic-40" src="assets/icons/c-plusplus.svg" alt="" width="43" height="48" loading="lazy"><span>C++</span></li>
+        <li><img class="ic ic-40" src="assets/icons/javascript.svg" alt="" width="48" height="48" loading="lazy"><span>JavaScript</span></li>
+        <li><img class="ic ic-40 ic-ink" src="assets/icons/ui-database.svg" alt="" width="48" height="48" loading="lazy"><span>SQL</span></li>
+        <li><img class="ic ic-40" src="assets/icons/fastapi.svg" alt="" width="48" height="48" loading="lazy"><span>FastAPI</span></li>
+        <li><img class="ic ic-40 ic-tall ic-ink" src="assets/icons/flask.svg" alt="" width="37" height="48" loading="lazy"><span>Flask</span></li>
+        <li><img class="ic ic-40" src="assets/icons/django.svg" alt="" width="48" height="48" loading="lazy"><span>Django</span></li>
+        <li><img class="ic ic-40 ic-wide" src="assets/icons/sqlalchemy.svg" alt="" width="134" height="48" loading="lazy"><span>SQLAlchemy</span></li>
+        <li><img class="ic ic-40" src="assets/icons/postman.svg" alt="" width="48" height="48" loading="lazy"><span>Postman</span></li>
+        <li><img class="ic ic-40 ic-land" src="assets/icons/docker.svg" alt="" width="66" height="48" loading="lazy"><span>Docker</span></li>
+        <li><img class="ic ic-40" src="assets/icons/kubernetes.svg" alt="" width="49" height="48" loading="lazy"><span>Kubernetes</span></li>
+        <li><img class="ic ic-40" src="assets/icons/azure.svg" alt="" width="51" height="48" loading="lazy"><span>Azure</span></li>
+        <li><img class="ic ic-40" src="assets/icons/google-cloud.svg" alt="" width="60" height="48" loading="lazy"><span>Google Cloud</span></li>
+        <li><img class="ic ic-40" src="assets/icons/git-icon.svg" alt="" width="48" height="48" loading="lazy"><span>Git</span></li>
+        <li><img class="ic ic-40" src="assets/icons/linux-tux.svg" alt="" width="41" height="48" loading="lazy"><span>Linux</span></li>
+        <li><img class="ic ic-40" src="assets/icons/bash.svg" alt="" width="42" height="48" loading="lazy"><span>Bash</span></li>
+        <li><img class="ic ic-40 ic-land" src="assets/icons/scikitlearn.svg" alt="" width="82" height="48" loading="lazy"><span>scikit-learn</span></li>
+        <li><img class="ic ic-40 ic-ink" src="assets/icons/ui-globe.svg" alt="" width="48" height="48" loading="lazy"><span>REST APIs</span></li>
+      </ul></div>
     </div>
-  </footer>
-  <script src="assets/script.js"></script>
+  </section>
+</main>
+
+<footer class="footer closing g2m" id="contact" aria-labelledby="close-h">
+  <div class="wrap">
+    <div class="closing__cta close--type">
+      <div class="section-head">
+        <h2 id="close-h">Email me about a backend or data role</h2>
+        <p class="t-small muted">Based in Portugal. I work in Portuguese and English.</p>
+      </div>
+      <a class="btn btn--primary" href="mailto:davidmatos0417@gmail.com">Email David<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+    </div>
+    <div class="closing__links">
+      <div class="grid">
+        <div class="span-6 stack-4">
+          <a class="nav__logo" href="#top">David Matos</a>
+          <p class="footer__lede">Backend and data engineer in Portugal</p>
+        </div>
+        <div class="span-2 footer__col"><h3>Experience</h3><ul><li><a href="#experience">Internships</a></li><li><a href="#letter">Recommendation</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Work</h3><ul><li><a href="#projects">Projects</a></li><li><a href="#skills">Skills</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Documents</h3><ul><li><a href="files/david-matos-cv.pdf">CV</a></li><li><a href="files/david-matos-cover-letter.pdf">Cover letter</a></li></ul></div>
+      </div>
+      <div class="footer__legal">
+        <span>&copy; 2026 David Matos. Product names and logos are trademarks of their owners.</span>
+        <div class="socials"><a href="https://github.com/davidmatos17" aria-label="GitHub"><svg aria-hidden="true" class="ic ic-svg ic-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a><a href="https://www.linkedin.com/in/david-matos-8145b0259/" aria-label="LinkedIn"><svg aria-hidden="true" class="ic ic-svg ic-24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><g> <path d="M218.123122,218.127392 L180.191928,218.127392 L180.191928,158.724263 C180.191928,144.559023 179.939053,126.323993 160.463756,126.323993 C140.707926,126.323993 137.685284,141.757585 137.685284,157.692986 L137.685284,218.123441 L99.7540894,218.123441 L99.7540894,95.9665207 L136.168036,95.9665207 L136.168036,112.660562 L136.677736,112.660562 C144.102746,99.9650027 157.908637,92.3824528 172.605689,92.9280076 C211.050535,92.9280076 218.138927,118.216023 218.138927,151.114151 L218.123122,218.127392 Z M56.9550587,79.2685282 C44.7981969,79.2707099 34.9413443,69.4171797 34.9391618,57.260052 C34.93698,45.1029244 44.7902948,35.2458562 56.9471566,35.2436736 C69.1040185,35.2414916 78.9608713,45.0950217 78.963054,57.2521493 C78.9641017,63.090208 76.6459976,68.6895714 72.5186979,72.8184433 C68.3913982,76.9473153 62.7929898,79.26748 56.9550587,79.2685282 M75.9206558,218.127392 L37.94995,218.127392 L37.94995,95.9665207 L75.9206558,95.9665207 L75.9206558,218.127392 Z M237.033403,0.0182577091 L18.8895249,0.0182577091 C8.57959469,-0.0980923971 0.124827038,8.16056231 -0.001,18.4706066 L-0.001,237.524091 C0.120519052,247.839103 8.57460631,256.105934 18.8895249,255.9977 L237.033403,255.9977 C247.368728,256.125818 255.855922,247.859464 255.999,237.524091 L255.999,18.4548016 C255.851624,8.12438979 247.363742,-0.133792868 237.033403,0.000790807055" fill="currentColor"></path> </g></svg></a></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="assets/system.js"></script>
+<script type="module" src="assets/motion/motion.js"></script>
+<script type="module" src="assets/layout/layout.js"></script>
+<script type="module" src="assets/diagrams/mount.js"></script>
+<script>
+  // the theme toggle, shared with the other pages through localStorage
+  (function () {
+    var root = document.documentElement, btn = document.querySelector('[data-theme-toggle]');
+    var render = function () { var dark = root.dataset.theme === 'dark'; btn.textContent = dark ? '☀︎' : '☾︎'; btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode'); };
+    render();
+    btn.addEventListener('click', function () { root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark'; try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {} render(); });
+  })();
+</script>
 </body>
 </html>

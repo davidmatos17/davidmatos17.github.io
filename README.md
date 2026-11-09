@@ -8,6 +8,6 @@ Plain static HTML/CSS/JS, no build step. To preview locally, open `index.html` o
 python -m http.server
 ```
 
-- `assets/` – stylesheet and script
+- `assets/` – design system (CSS, JS, motion, icons)
 - `images/` – photo and favicons
 - `files/` – CV, cover letter and recommendation letter (PDF)
